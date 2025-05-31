@@ -1,0 +1,710 @@
+title = "The World Moves On"
+
+intro = "txt, desc, req, con, tag, color, textcolor, next"
+
+note1= "Introduction stuff that must be choosen"
+[storylets.intro]
+txt="intro"
+desc = "You arrive at the doorstep of someone you haven't seen in a very long time. You fiddle with the aglet of your sweatshirt. After a moment, the door opens."
+req="nevermeet"
+tag=["center"]
+color=64
+textcolor=225
+
+[storylets.hi]
+txt="Hi!"
+desc = '"Hi!"'
+next= ["matehi"]
+con = [['hi3'], ['hi2']]
+tag= "right"
+
+[storylets.hi2]
+txt="hi."
+desc = '"hi."'
+next= ["matehi"]
+con = [['hi'], ['hi3']]
+tag= "right"
+color=0
+textcolor=255
+
+[storylets.hi3]
+txt="Hey"
+desc = '"Hey"'
+next= ["matehi"]
+con = [['hi'], ['hi2']]
+tag= "right"
+color=64
+textcolor=225
+
+[storylets.matehi]
+desc = '"Hey, long time no see! What are you doing around here so late?"'
+req="nevermeet"
+tag= "left"
+
+
+note = "EVERYTHING AFTER THIS POINT MUST CONFLICT WITH LEAVE1"
+
+note3= "Level 1 of optional choices"
+
+[storylets.snack1]
+txt="Snacks"
+desc='"I was just in the area and thought I’d drop by. I brought some snacks."'
+req=[['hi'], ['hi2'], ['hi3']]
+con=[['leave1'], ['visit1'], ['comein1']]
+next=["censnack12", "matesnack13"]
+tag= "right"
+
+[storylets.censnack12]
+desc='You hold out a shopping bag of assorted pre-packaged snacks.'
+req="nevermeet"
+tag= "center"
+
+[storylets.matesnack13]
+desc='"Aw, that’s nice of you. You really didn’t have to do that."'
+req="nevermeet"
+tag= "left"
+
+[storylets.visit1]
+txt="Visit"
+desc='"I came to see you actually. It’s been too long."'
+req=[['hi'], ['hi2'], ['hi3']]
+con=[['leave1'], ['snack1'], ['comein1']]
+next=["matevisit12"]
+tag= "right"
+color=64
+textcolor=225
+
+[storylets.matevisit12]
+txt="Visit"
+desc='"Yeah, it has. Did you want to come inside?"'
+req="nevermeet"
+tag= "left"
+color=64
+textcolor=225
+
+[storylets.comein1]
+txt="Inside"
+desc='"Can I come inside?"'
+req=[['hi'],['hi2'], ['hi3']]
+con=[['leave1'], ['joke1'],['visit1']]
+tag=["right", "normal"]
+next=["matecomein12","censit1"]
+color=0
+textcolor=255
+
+[storylets.matecomein12]
+desc='"Uh, yeah sure."'
+req="nevermeet"
+tag=["slow","left"]
+
+[storylets.notrouble1]
+txt="No trouble at all."
+desc='"I just thought they would be nice to have and I had extra just collecting dust and cobwebs, so here I am. It was really no trouble."'
+req="snack1"
+con=[['leave1'],['comein1']]
+next=['matenotrouble12']
+tag= "right"
+
+[storylets.matenotrouble12]
+desc='"I sort of doubt you just had peppermint bark lying around given you hate peppermint and it’s the middle of July, but thank you anyways."'
+req="nevermeet"
+tag= "left"
+
+[storylets.joke1]
+txt="Joke"
+desc='"Hey, you don’t know how long this was sitting around! Maybe I was being serious about the cobwebs."'
+req="notrouble1"
+con=[['leave1'], ['comein1']]
+next=["matejoke12"]
+tag= "right"
+
+[storylets.matejoke12]
+desc='"Ha, well if I get poisoned and die, I’ll know who to blame. Did you want to come inside?"'
+req="nevermeet"
+tag= "left"
+
+[storylets.goinside1]
+txt="Yeah"
+desc='"Yeah, I would if you don’t mind."'
+next=['mategoinside1', 'censit1']
+req=[["joke1"], ['visit1']]
+tag= "right"
+
+[storylets.mategoinside1]
+desc=['"Come on in, I have nothing planned tonight."', '"Not that I usually have something planned, given... ya know."']
+req="nevermeet"
+tag= "left"
+
+[storylets.censit1]
+desc= 'You sit down in their living room.'
+req= 'nevermeet'
+tag='center'
+
+[storylets.judge1]
+txt="Judge"
+desc= 'You glance around the apartment. Clothes lay scattered on the floor. The stench of the unwashed dishes wafts in from the kitchen.'
+next=['judge12','judge13']
+req= [['goinside1'],['comein1']]
+con=[['leave1'],['chat4'], ['ask4']]
+tag='center'
+color=0
+textcolor=255
+
+[storylets.judge12]
+desc= '“You can’t keep living like this.” '
+req= 'nevermeet'
+tag='right'
+color=0
+textcolor=255
+
+[storylets.judge13]
+desc= '“I know, I might just have to stop living altogether if it gets any worse!”'
+req= 'nevermeet'
+tag='left'
+
+[storylets.judge2]
+txt="Judge"
+desc='“What happened to you?”'
+next=['judge21']
+req= 'judge1'
+con=[['leave1'],['chat4'], ['ask4']]
+tag='right'
+color=0
+textcolor=255
+
+[storylets.judge21]
+desc= '“I don’t know. Life happened. Things happened while you were away. Are things really all that different?”'
+req= 'nevermeet'
+tag='left'
+color=64
+textcolor=225
+
+[storylets.judge3]
+txt="Judge"
+desc= '“Look at yourself, you’ve completely let yourself go.”'
+next=['judge31']
+req= 'judge2'
+con=[['leave1'],['chat4'], ['ask4']]
+tag='right'
+color=0
+textcolor=255
+
+[storylets.judge31]
+desc= '“Thanks for the feedback, I’ll be sure to give it to someone who cares.”'
+req= 'nevermeet'
+tag='left'
+color=64
+textcolor=225
+
+[storylets.judge4]
+txt="Judge"
+desc= '“If you keep going like this-”'
+next=['judge41', 'judge42','judge43','judge44','judge45','judge46','judge47',]
+req= 'judge3'
+con=[['leave1'],['chat4'], ['ask4']]
+tag='right'
+color=0
+textcolor=255
+
+[storylets.judge41]
+desc= '“I’ve heard this all before. I’ve even heard it from myself many times over. Do you think I want to be like this? Do you think I’m doing all this on purpose?”'
+req= 'nevermeet'
+tag='left'
+color=0
+textcolor=255
+
+[storylets.judge42]
+desc= '“If you just-”'
+req= 'nevermeet'
+tag='right'
+color=64
+textcolor=225
+
+[storylets.judge43]
+desc= '“If I just what?”'
+req= 'nevermeet'
+tag='left'
+color=0
+textcolor=255
+
+[storylets.judge44]
+desc= '“I don’t know, like just-”'
+req= 'nevermeet'
+tag='right'
+color=64
+textcolor=225
+
+[storylets.judge45]
+desc= "“Just magically tell myself to get better? To stop thinking about it? Oh yeah, just give me a second. Well, look at that, I’m just so much better, thanks for your revolutionary insight.”"
+req= 'nevermeet'
+tag='left'
+color=0
+textcolor=255
+
+[storylets.judge46]
+desc= '“I’m just trying to help.”'
+req= 'nevermeet'
+tag='right'
+color=64
+textcolor=225
+
+[storylets.judge47]
+desc= '“Oh you’re here for me? Or are you really just here for yourself?”'
+req= 'nevermeet'
+tag='left'
+color=0
+textcolor=255
+
+[storylets.end1]
+txt='...'
+desc='...'
+req='judge4'
+next=["end11","end12","end13","end14","end15","end16","end17","end18","end19"]
+tag="right"
+color=0
+textcolor=255
+
+[storylets.end11]
+desc= '“If you don’t like what you see, you can leave.”'
+req= 'nevermeet'
+tag='left'
+color=64
+textcolor=225
+
+[storylets.end12]
+desc= '“I’m just concerned, that’s all. Seeing you like this- it’s heartbreaking.”'
+req= 'nevermeet'
+tag='right'
+color=64
+textcolor=225
+
+[storylets.end13]
+desc= '“I can’t believe you had the audacity to come into my home and judge me.”'
+req= 'nevermeet'
+tag='left'
+color=0
+textcolor=255
+
+[storylets.end14]
+desc= '“You know nothing about what I’ve been through this year.”'
+req= 'nevermeet'
+tag='left'
+color=64
+textcolor=225
+
+[storylets.end15]
+desc= 'Tears welled up in her eyes.'
+req= 'nevermeet'
+tag='center'
+color=64
+textcolor=225
+
+[storylets.end16]
+desc= '“I think you should go.”'
+req= 'nevermeet'
+tag='left'
+color=0
+textcolor=255
+
+[storylets.end17]
+desc= '“But-”'
+req= 'nevermeet'
+tag='right'
+color=64
+textcolor=225
+
+[storylets.end18]
+desc= '“Go.”'
+req= 'nevermeet'
+tag='left'
+color=0
+textcolor=255
+
+[storylets.end19]
+desc= 'You look at this person that used to be so familiar. You remember how they looked when you played a more active part in their life. The features are the same, although hardened and aged from time. What happened to that bond you had shared? You can almost see it fall, broken on the floor. You don’t recognize them anymore and you realize that they don’t recognize you either.'
+req= 'nevermeet'
+tag='center'
+color=0
+textcolor=255
+
+[storylets.chat1]
+txt="Chat"
+desc='You notice there are clothes on the ground and a pile of undone dishes in the sink.'
+next=['chat11','chat12', 'chat13']
+req= [['goinside1'],['comein1']]
+con=[['leave1'],['judge4'], ['ask4']]
+tag='center'
+
+[storylets.chat11]
+desc= '“So what have you been up to?”'
+req= 'nevermeet'
+tag=['right', 'normal']
+
+[storylets.chat12]
+desc= '“Nothing. Nothing interesting either, if that was your follow up.”'
+req= 'nevermeet'
+tag=['left', 'normal']
+
+[storylets.chat13]
+desc= '“Oh.”'
+req= 'nevermeet'
+tag=['right', 'normal']
+
+[storylets.chat2]
+txt="Chat"
+desc='“How’s your job?”'
+next=['chat21']
+req= 'chat1'
+con=[['leave1'],['judge4'], ['ask4']]
+tag=['right', 'normal']
+
+[storylets.chat21]
+desc= '“I lost it back in March. They said they would rehire once everything was over, but...well, here we are.”'
+req= 'nevermeet'
+tag=['left', 'normal']
+
+[storylets.chat3]
+txt="Chat"
+desc='“Did you pick up any hobbies over the ya-know? I learned to do macramé and I went on like, so many hikes.”'
+next=['chat31', 'chat32', 'chat33']
+req= 'chat2'
+con=[['leave1'],['judge4'], ['ask4']]
+tag=['right', 'normal']
+
+[storylets.chat31]
+desc= '“Ah, no, not really. I’ve just been here, lots of Netflix and Youtube. I just don’t see the point in going out. I’ve got all the stuff I need right here.”'
+req= 'nevermeet'
+tag=['left', 'normal']
+
+[storylets.chat32]
+desc= 'They gesture to their smartphone. '
+req= 'nevermeet'
+tag='center'
+
+[storylets.chat33]
+desc= '“The power of the internet puts anything I could possibly want in my hands in 2-3 business days.”'
+req= 'nevermeet'
+tag=['left', 'normal']
+
+[storylets.chat4]
+txt="Chat"
+desc='“Things have been pretty shit for you, haven’t they.”'
+next=['chat41','chat42','chat43','chat44','chat45','chat46']
+req='chat3'
+con=[['leave1'],['judge4'], ['ask4']]
+tag='right'
+
+[storylets.chat41]
+desc='“That’s a blunt way to put it, but I wouldn’t say it was inaccurate.”'
+req= 'nevermeet'
+tag='left'
+
+[storylets.chat42]
+desc='“I’m sorry I wasn’t here sooner.”'
+req= 'nevermeet'
+tag=['right', 'normal']
+
+[storylets.chat43]
+desc='“Ah, it’s alright, I get it. The world turns, people get caught up in their own things-”'
+req= 'nevermeet'
+tag=['left', 'normal']
+
+[storylets.chat44]
+desc='“No, I mean it. I’m sorry I wasn’t here when you needed me the most.”'
+req= 'nevermeet'
+tag='right'
+
+[storylets.chat45]
+desc='...'
+req= 'nevermeet'
+tag=['left', 'slow']
+
+[storylets.chat46]
+desc='“Thank you.”'
+req= 'nevermeet'
+tag=['left', 'slow']
+
+
+
+[storylets.end2]
+txt="Hug"
+desc='You put your arms out for a hug and they bury their face in your shoulder.'
+next=['end21', 'end22', 'end23']
+req= 'chat4'
+tag='center'
+
+[storylets.end21]
+desc='“I’m here for you now.”'
+req= 'nevermeet'
+tag=['right', 'slow']
+
+[storylets.end22]
+desc='“And I won’t be leaving any time soon.”'
+req= 'nevermeet'
+tag=['right', 'slow']
+
+[storylets.end23]
+desc='You feel your shoulder getting wet with tears. You stay with them there in that position for a long time. The world turns around you, fighting against your embrace, but you stay. You stay as long as you need to to make this moment okay.'
+req= 'nevermeet'
+tag='center'
+
+[storylets.ask1]
+txt="Ask"
+desc='“Hey, could you-”'
+next=['ask11','ask12', 'ask13', 'ask14', 'ask15', 'ask16']
+req= [['goinside1'],['comein1']]
+con=[['leave1'],['judge4'], ['chat4']]
+tag=['right', 'slow']
+color=64
+textcolor=225
+
+[storylets.ask11]
+desc='“Did you want something to drink?”'
+req='nevermeet'
+tag="left"
+
+[storylets.ask12]
+desc='“No, I’m fine-”'
+req='nevermeet'
+tag="right"
+
+[storylets.ask13]
+desc='“You sure?”'
+req='nevermeet'
+tag="left"
+
+[storylets.ask14]
+desc='“Yes, I’m sure.”'
+req='nevermeet'
+tag="right"
+color=64
+textcolor=225
+
+[storylets.ask15]
+desc='“Okay, your loss.”'
+req='nevermeet'
+tag="left"
+
+[storylets.ask16]
+desc='You try to think of the right way to say what you want to say. '
+req='nevermeet'
+tag="center"
+color=64
+textcolor=225
+
+[storylets.ask2]
+txt="Ask"
+desc='“Is there anything I can do for you to help?”'
+next=['ask21','ask22', 'ask23', 'ask24']
+req= 'ask1'
+con=[['leave1'],['judge4'], ['chat4']]
+tag=['right', 'slow']
+color=64
+textcolor=225
+
+[storylets.ask21]
+desc='“What do you mean?”'
+req='nevermeet'
+tag="left"
+
+[storylets.ask22]
+desc='“Just… I don’t know, anything, anything at all.”'
+req='nevermeet'
+tag=['right', 'slow']
+color=64
+textcolor=225
+
+[storylets.ask23]
+desc='They tilt their head to the left.'
+req='nevermeet'
+tag="center"
+
+[storylets.ask24]
+desc='“You’re being weird.”'
+req='nevermeet'
+tag=['left', 'slow']
+
+[storylets.ask3]
+txt="Ask"
+desc='“Are you okay?”'
+next=['ask31','ask32']
+req= 'ask2'
+con=[['leave1'],['judge4'], ['chat4']]
+tag=['right', 'slow']
+color=64
+textcolor=225
+
+[storylets.ask31]
+desc='“Do I look fine?”'
+req='nevermeet'
+tag=['left', 'slow']
+color=64
+textcolor=225
+
+[storylets.ask32]
+desc='This is a loaded question, so you don’t answer it.'
+req='nevermeet'
+tag="center"
+color=64
+textcolor=225
+
+[storylets.ask4]
+txt="Ask"
+desc='“How can I be here for you right now?”'
+next=['ask41','ask42', 'ask43']
+req= 'ask3'
+con=[['leave1'],['judge4'], ['chat4']]
+tag=['right', 'slow']
+color=64
+textcolor=225
+
+[storylets.ask41]
+desc='“Why are you asking all these questions?”'
+req='nevermeet'
+tag=['left', 'slow']
+
+[storylets.ask42]
+desc='“Because I care about you.”'
+req='nevermeet'
+tag=['right', 'slow']
+color=64
+textcolor=225
+
+[storylets.ask43]
+desc='...'
+req='nevermeet'
+tag="left"
+color=64
+textcolor=225
+
+[storylets.end3]
+txt="..."
+desc='...'
+next=['end31','end32', 'end33', 'end34','end35','end34','end37','end38','end39','end310','end311','end37', 'end313','end314','end315']
+req= 'ask4'
+con=[['leave1'],['judge4'], ['chat4']]
+tag='right'
+color=64
+textcolor=225
+
+[storylets.end31]
+desc='“Do you ever wonder what would have happened if we did things differently?”'
+req='nevermeet'
+tag="left"
+color=64
+textcolor=225
+
+[storylets.end32]
+desc='“All the time.”'
+req='nevermeet'
+tag="right"
+color=64
+textcolor=225
+
+[storylets.end33]
+desc='“I keep thinking about them. What if I had just asked them, ‘Hey how are you feeling? Do you want to go out tonight?’ What if I had known? Would they still be here?”'
+req='nevermeet'
+tag="left"
+color=64
+textcolor=225
+
+[storylets.end34]
+desc='“You couldn’t have known.”'
+req='nevermeet'
+tag="right"
+color=64
+textcolor=225
+
+[storylets.end35]
+desc='“But what if…”'
+req='nevermeet'
+tag=['left', 'slow']
+
+
+[storylets.end37]
+desc='...'
+req='nevermeet'
+tag=['left', 'slow']
+color=64
+textcolor=225
+
+[storylets.end38]
+desc=' “This sucks.”'
+req='nevermeet'
+tag="left"
+color=64
+textcolor=225
+
+[storylets.end39]
+desc='“Yeah. Yeah, it does.”'
+req='nevermeet'
+tag="right"
+color=64
+textcolor=225
+
+[storylets.end310]
+desc='“When did I get old? Everything’s gone so fast.”'
+req='nevermeet'
+tag="left"
+color=64
+textcolor=225
+
+[storylets.end311]
+desc='“The world moves on without us. No matter how much you want to go back, the past is long gone.”'
+req='nevermeet'
+tag="right"
+color=64
+textcolor=225
+
+[storylets.end313]
+desc='“Will you sit here with me for a while? I don’t think I’m ready.”'
+req='nevermeet'
+tag=['left', 'slow']
+color=64
+textcolor=225
+
+[storylets.end314]
+desc='“Yeah. I’ll be here when you are.”'
+req='nevermeet'
+tag=['right', 'slow']
+color=64
+textcolor=225
+
+[storylets.end315]
+desc='The two of you sit together long into the night, remembering the good times. The sun rises without a sound and you pause your conversation to watch the colors filter in. It’s time to think of what comes next.'
+req='nevermeet'
+tag="center"
+color=64
+textcolor=225
+
+
+[storylets.leave1]
+txt="Leave"
+desc='"I better get going."'
+req=[['hi'],['hi2'], ['hi3']]
+con=[['judge4'],['chat4'],['ask4']]
+next=["mateleave12", "leave13", "cenleave14"]
+tag= "right"
+color=64
+textcolor=225
+
+[storylets.mateleave12]
+desc=['"Oh, yeah, no worries."', '"Hey, it was really good to see you."']
+req="nevermeet"
+tag= "left"
+color=64
+textcolor=225
+
+[storylets.leave13]
+desc=['"You too."']
+req="nevermeet"
+tag= "right"
+color=64
+textcolor=225
+
+[storylets.cenleave14]
+desc=['You wonder if you really said all you had wanted to say, but it was too late now. You walk away with an uneasy sensation in your stomach.']
+req="nevermeet"
+tag= "center"
+color=64
+textcolor=225
