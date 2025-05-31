@@ -1,25 +1,86 @@
-/* a minimalist set of CSS resets */
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond&family=Noto+Sans&family=Raleway&display=swap');
 
-/* default to border-box */
-html {
-  box-sizing: border-box;
-  font-size: 16px;
+html{
+  background-color: white;
+  background: linear-gradient(rgb(255,255,255), rgb(0,0,0)) fixed;
 }
 
-*, *:before, *:after {
-  box-sizing: inherit;
+#titleContainer {
+  font-family: 'Abril Fatface', cursive;
+  font-size: 3.1em;
+  border-radius: 1ex;
+  padding: 16px;
 }
 
-/* adjust typography defaults */
+#storyContainer p {
+  padding: 1em;
+  border-radius: 1ex;
+  
+  margin: 0ex;
+  margin-bottom: 1ex;
+  hypen: auto;
+ 
+}
+
+#choicesContainer{
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+#choicesContainer button {
+  border-radius: 1ex;
+  background: #eee;
+  transition: 0.3s;
+  margin-right: 1em;
+  margin-top: 1ex;
+  
+  animation: expand 0.3s ease-in-out;
+}
+
+#choicesContainer button:hover {
+  background: #fff;
+}
+
+@keyframes expand {
+  from {
+    opacity: 0;
+    transform: scale(0);
+  }
+}
+
 body {
-  margin: 1rem;
-  font-family: sans-serif;
-  line-height: 1.5;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 32em;
+  margin-bottom: 2em;
 }
 
-/* images and videos max out at full width */
-img,
-video {
-  height: auto;
-  max-width: 100%;
+.center{
+  font-family: 'Cormorant Garamond', serif;
+  animation: expand 0.9s ease-in-out;
+}
+
+.left {
+  position: relative;
+  right: 3em;
+  max-width:21em;
+  font-family: 'Raleway', sans-serif;
+}
+
+.right{
+  position: relative;
+  left: 19em;
+  max-width:21em;
+  font-family: 'Noto Sans', sans-serif;
+}
+
+.normal{
+  animation: expand 0.3s ease-in-out;
+}
+
+.slow{
+  animation: expand 0.9s ease-in-out;
+  
 }
